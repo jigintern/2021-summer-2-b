@@ -14,10 +14,11 @@
 <script>
   let push_count = 0;
   let items = [];
+  const Num_of_questions = 5; //問題数
 
   //上の丸描画を表示（オブジェクト別）
   const DrawCircle = function (ctx, items){
-    [...Array(5)].forEach((_, i) => {
+    [...Array(Num_of_questions)].forEach((_, i) => {
       const x = 100 + i * 100;
       const y = 100;
 
@@ -31,14 +32,13 @@
   
   //下の円の色を変える関数
   const ChangeCircleColor = function (ctx, push_count){
-    if (push_count < 6) {
+    if (push_count <= Num_of_questions) {
         ctx.save();
         ctx.beginPath();
         ctx.arc(100 * push_count, 450, 25, 0, Math.PI * 2, true);
         ctx.fillStyle = "blue";
         ctx.fill();
         ctx.restore();
-
       }
   }
 
@@ -126,15 +126,15 @@
     ctx.restore();
 
     // 下の丸
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < Num_of_questions; i++) {
       xpoint = i * 100;
       ctx.fillStyle = 'black';
-      if (i == 0 || i == 4)
+      if (i == 0 || i == Num_of_questions - 1)
         ctx.arc(100 + xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       else
         ctx.arc(100 + xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       ctx.fill();
-      if (i != 4)
+      if (i != Num_of_questions - 1)
         DrawHorizontalLine(ctx, 100 + xpoint, 450); //直線の描画
     }
 
