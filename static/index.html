@@ -15,20 +15,6 @@
   let push_count = 0;
   let items = [];
   const Num_of_questions = 5; //問題数
-
-  //上の丸描画を表示（オブジェクト別）
-  const DrawCircle = function (ctx, items){
-    [...Array(Num_of_questions)].forEach((_, i) => {
-      const x = 100 + i * 100;
-      const y = 100;
-
-      const circle = new Circle(x, y, 25);
-      items.push(circle);
-    });
-
-    // オブジェクトを描画する
-    items.forEach(item => item.draw(ctx));
-  }
   
   //下の円の色を変える関数
   const ChangeCircleColor = function (ctx, push_count){
@@ -98,7 +84,6 @@
       ctx.restore();
 
       ChangeCircleColor(ctx, push_count); //下の円の色を変える
-      DrawCircle(ctx, push_count);
     }
 
     testHit(point) {
@@ -138,7 +123,16 @@
         DrawHorizontalLine(ctx, 100 + xpoint, 450); //直線の描画
     }
 
-    DrawCircle(ctx, items); //上の丸描画（オブジェクト別）
+    [...Array(Num_of_questions)].forEach((_, i) => {
+      const x = 100 + i * 100;
+      const y = 100;
+
+      const circle = new Circle(x, y, 25);
+      items.push(circle);
+    });
+
+    // オブジェクトを描画する
+    items.forEach(item => item.draw(ctx));
 
 
     canvas.addEventListener("click", e => {
