@@ -16,6 +16,14 @@
   let items = [];
   const Num_of_questions = 5; //問題数
 
+  // canvasを白く戻す関数
+  const White_canvas = function (ctx, x, y){
+    ctx.save();
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, x, y);
+    ctx.restore();
+  }
+
   //上の円を表示する関数（オブジェクト別）
   const UpDrawCircle = function (ctx, items){
     [...Array(Num_of_questions)].forEach((_, i) => {
@@ -30,7 +38,7 @@
     items.forEach(item => item.draw(ctx));
   }
 
-  // 下の円を表示
+  // 下の円を表示する関数
   const DownDrawCircle = function (ctx){
     for (i = 0; i < Num_of_questions; i++) {
       xpoint = i * 100;
@@ -134,11 +142,8 @@
     canvas.height = 480;
 
     const ctx = canvas.getContext("2d");
-    ctx.save();
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.restore();
     
+    White_canvas(ctx, canvas.width, canvas.height);
     UpDrawCircle(ctx, items); //上の円を描画
     DownDrawCircle(ctx); //下の円を描画
 
