@@ -10,67 +10,41 @@
 </body>
 </html>
 
-<script>
-    /*let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
-    let i = 0;
-    let xpoint;
-    let btnBox = [];
-    console.log(btnBox);
-    let draw = (color,i,way) =>{
-
-        xpoint = i*100;
-        ctx.fillStyle = color;
-        ctx.arc( 100+xpoint, 100, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
-        ctx.fill();
-
-        
-        
-
-        if(way == "push"){
-            btnBox.push(ctx.fillStyle);
-        }else if(way == "up"){
-            btnBox.unshift(ctx.fillSytle);
-            btnBox.pop();
-        }
-        console.log(btnBox);
-
-    }
-
+<script type=module>
     
-        
-    draw('red',i,"push");
-    for(i=1;i<5;i++){
-        draw("black",i,"push");
-    }
-    
-    canvas.addEventListener('click',function() {
-        //btnBox[0].fillStyle = "red";
-        draw('black',i,"up");
-        alert("HELLO");
-        console.log(btnBox);
+  import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 
-    }, false);*/
-
-    //import { bg } from "https://js.sabae.cc/find47images.js";
 onload = async () => {
+  const {data} = await fetchJSON("/api/events");
+
+  let min = 0;
+  let max = 5;
+
+  let i = Math.floor(Math.random()*(max + 1 - min)) + min;
+
   //await bg(2892);
-  alert("台風が来た！！");
+  //alert("台風が来た！！");
+  alert(data[i].problem);
   let flg = false;
   for (;;) {
-    const n = prompt("どの道を通る？\n1. 山\n2. 川\n3. 通学路");
+    
+    const n = prompt(data[i].subject+"\n1. "+data[i].items[0].name+"\n2." +data[i].items[1].name+"\n3."+ data[i].items[2].name);
+
     if (n == 1) {
       //await bg(658);
-      alert("土砂崩れだ！！");
+      alert(data[i].items[0].score);
       alert("GAMEOVER");
+      break;
     } else if (n == 2) {
       //await bg(1855);
-      alert("川が氾濫している！！");
+      alert(data[i].items[1].score);
       alert("GAMEOVER");
+      break;
     } else if (n == 3) {
       //await bg(23);
-      alert("道が混んでる！！、けどなんとか生きながらえた");
+      alert(data[i].items[2].score);
       flg = true;
+      break;
     } else {
       break;
     }
