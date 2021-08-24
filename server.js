@@ -1,2 +1,15 @@
 import {Server} from "https://js.sabae.cc/Server.js";
-new Server(8001);
+import {
+  getEvents
+} from "./controllers/api.js";
+
+class MyServer extends Server {
+  api(path, req) {
+    switch(path) {
+      case "/api/events":
+        return getEvents();
+    }
+  }
+}
+
+new MyServer(8001);
