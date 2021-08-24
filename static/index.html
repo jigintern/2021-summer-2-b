@@ -20,16 +20,46 @@ onload = async () => {
   let min = 0;
   let max = 5;
 
-  let i = Math.floor(Math.random()*(max + 1 - min)) + min;
+  // シャッフル
+  const shuffle = (array) => {
+    let currentIndex = array.length;
+    let randomIndex;
 
-  //await bg(2892);
-  //alert("台風が来た！！");
-  alert(data[i].problem);
-  let flg = false;
-  for (;;) {
+    while (currentIndex != 0) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // 配列の二つの数字を交換
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+  }
+
+  let question = (data, i) =>{
+    alert(data[i].problem);
+    let cnt = 0;
+    let num = data[i].length-1
+
+    while(cnt != num){
+      console.log(data[i].items[cnt].name);
+      cnt++;
+    }
+  
     
-    const n = prompt(data[i].subject+"\n1. "+data[i].items[0].name+"\n2." +data[i].items[1].name+"\n3."+ data[i].items[2].name);
 
+  }
+  
+  let flg = false;
+  let i = 0;
+  shuffle(data);
+  while(data[i]!="null"){
+    question(data,i);
+    i++;
+  }
+  /*for (;;) {
     if (n == 1) {
       //await bg(658);
       alert(data[i].items[0].score);
@@ -58,6 +88,6 @@ onload = async () => {
     //await bg(3180);
     alert("もう少し慎重に行動しよう");
     alert("THE END");
-  }
+  }*/
 };
 </script>
