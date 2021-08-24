@@ -2,7 +2,7 @@
 <html lang="ja">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-  <title>ゲーム</title>
+<title>ゲーム</title>
 </head>
 
 <body>
@@ -12,8 +12,38 @@
 </html>
 
 <script>
+  let push_count = 0;
+  let items = [];
+
+  //上の丸描画を表示（オブジェクト別）
+  const DrawCircle = function (ctx, items){
+    [...Array(5)].forEach((_, i) => {
+      const x = 100 + i * 100;
+      const y = 100;
+
+      const circle = new Circle(x, y, 25);
+      items.push(circle);
+    });
+
+    // オブジェクトを描画する
+    items.forEach(item => item.draw(ctx));
+  }
+  
+  //下の円の色を変える関数
+  const ChangeCircleColor = function (ctx, push_count){
+    if (push_count < 6) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(100 * push_count, 450, 25, 0, Math.PI * 2, true);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.restore();
+
+      }
+  }
+
   // 直線をかく関数
-  const DrawHorizontalLine = function(ctx, x, y) {
+  const DrawHorizontalLine = function (ctx, x, y) {
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 10;
     ctx.beginPath();
@@ -22,9 +52,7 @@
     ctx.closePath();
     ctx.stroke();
   };
-  
 
-  let push_count = 0;
   /**
  * オブジェクトのベースとなるクラス
  */
@@ -69,14 +97,8 @@
       ctx.fill();
       ctx.restore();
 
-      if(push_count < 6){
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(100 * push_count,450, 25, 0, Math.PI * 2, true);
-        ctx.fillStyle = "blue";
-        ctx.fill();
-        ctx.restore();
-      }
+      ChangeCircleColor(ctx, push_count); //下の円の色を変える
+      DrawCircle(ctx, push_count);
     }
 
     testHit(point) {
@@ -93,44 +115,30 @@
   const main = () => {
     const canvas = document.getElementById("app");
 
-    
+
     canvas.width = 640;
     canvas.height = 480;
-    
+
     const ctx = canvas.getContext("2d");
     ctx.save();
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
 
-    ctx.strokeStyle = '#666';
-    ctx.lineWidth = 10;
     // 下の丸
-    for(i=0;i<5;i++){
-        
-      xpoint = i*100;
+    for (i = 0; i < 5; i++) {
+      xpoint = i * 100;
       ctx.fillStyle = 'black';
-      if(i==0 || i==4)
-        ctx.arc( 100+xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      if (i == 0 || i == 4)
+        ctx.arc(100 + xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       else
-        ctx.arc( 100+xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+        ctx.arc(100 + xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
       ctx.fill();
-      if(i!=4)
-        DrawHorizontalLine(ctx, 100+xpoint, 450);
+      if (i != 4)
+        DrawHorizontalLine(ctx, 100 + xpoint, 450); //直線の描画
     }
 
-    const items = [];
-
-    [...Array(5)].forEach((_, i) => {
-      const x = 100 + i * 100;
-      const y = 100;
-
-      const circle = new Circle(x, y, 25);
-      items.push(circle);
-    });
-
-    // オブジェクトを描画する
-    items.forEach(item => item.draw(ctx));
+    DrawCircle(ctx, items); //上の丸描画（オブジェクト別）
 
 
     canvas.addEventListener("click", e => {
@@ -143,7 +151,7 @@
 
       items.forEach(item => {
         if (item.testHit(point)) {
-          push_count += 1;
+          push_count += 1; //押した回数
           item.clicked(ctx, push_count);
         }
       });
