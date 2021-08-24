@@ -12,10 +12,18 @@
 </html>
 
 <script>
+  // 直線をかく関数
+  const DrawHorizontalLine = function(ctx, x, y) {
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 100, y);
+    ctx.closePath();
+    ctx.stroke();
+  };
+  
 
-  function change_road_color(ctx){
-
-  }
   let push_count = 0;
   /**
  * オブジェクトのベースとなるクラス
@@ -44,6 +52,7 @@
     }
 
     draw(ctx) {
+      // 上の丸
       ctx.save();
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
@@ -63,7 +72,7 @@
       if(push_count < 6){
         ctx.save();
         ctx.beginPath();
-        ctx.arc(100 * push_count,450, this.r, 0, Math.PI * 2, true);
+        ctx.arc(100 * push_count,450, 25, 0, Math.PI * 2, true);
         ctx.fillStyle = "blue";
         ctx.fill();
         ctx.restore();
@@ -93,12 +102,21 @@
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
+
+    ctx.strokeStyle = '#666';
+    ctx.lineWidth = 10;
+    // 下の丸
     for(i=0;i<5;i++){
         
       xpoint = i*100;
       ctx.fillStyle = 'black';
-      ctx.arc( 100+xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      if(i==0 || i==4)
+        ctx.arc( 100+xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      else
+        ctx.arc( 100+xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       ctx.fill();
+      if(i!=4)
+        DrawHorizontalLine(ctx, 100+xpoint, 450);
     }
 
     const items = [];
