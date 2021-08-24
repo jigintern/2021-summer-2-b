@@ -8,7 +8,7 @@ import {
 } from "./canvas.js";
 
 const main = () => {
-  
+
   let push_count = 0;
   let items = [];
 

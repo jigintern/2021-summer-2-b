@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゲーム</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲーム</title>
 </head>
+
 <body>
-    <canvas id="canvas" width = "1000px", height="1000px"></canvas>
+  <canvas id="canvas" width="1000px" , height="1000px"></canvas>
 </body>
+
 </html>
 
 <script type="module">
@@ -15,21 +18,19 @@
   import { shuffle } from "./utils/utils.js";
 
   window.onload = async () => {
-    const {data} = await fetchJSON("/api/events");
+    const { data } = await fetchJSON("/api/events");
 
     let question = (data) => {
-      let i = 0;
       alert(data.problem);
 
-      for (i=0;i<data.length;i++){
+      for (let i = 0; i < data.length; i++) {
         console.log(data.items[i].name);
       }
     }
 
-    let step_limit = 3;
-    let i = 0;
+    const step_limit = 3;
     shuffle(data);
-    for (i=0;i<step_limit;i++){
+    for (let i = 0; i < step_limit; i++) {
       question(data[i]);
     }
   };
