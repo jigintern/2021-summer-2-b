@@ -10,14 +10,15 @@
 </body>
 </html>
 
-<script type=module>
+<script type="module">
   import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
-  import { shuffle } from "utils/utils.js";
+  import { shuffle } from "./utils/utils.js";
 
   window.onload = async () => {
     const {data} = await fetchJSON("/api/events");
 
     let question = (data) => {
+      let i = 0;
       alert(data.problem);
 
       for (i=0;i<data.length;i++){
@@ -26,6 +27,7 @@
     }
 
     let step_limit = 3;
+    let i = 0;
     shuffle(data);
     for (i=0;i<step_limit;i++){
       question(data[i]);
