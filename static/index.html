@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
   <title>ゲーム</title>
 </head>
 
@@ -15,6 +13,10 @@
 
 <script>
 
+  function change_road_color(ctx){
+
+  }
+  let push_count = 0;
   /**
  * オブジェクトのベースとなるクラス
  */
@@ -50,14 +52,22 @@
       ctx.restore();
     }
 
-    clicked(ctx, ctx_road) {
+    clicked(ctx, push_count) {
       ctx.save();
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
       ctx.fillStyle = "red";
       ctx.fill();
-      ctx.restore(); 
+      ctx.restore();
 
+      if(push_count < 6){
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(100 * push_count,450, this.r, 0, Math.PI * 2, true);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.restore();
+      }
     }
 
     testHit(point) {
@@ -74,27 +84,28 @@
   const main = () => {
     const canvas = document.getElementById("app");
 
-
+    
     canvas.width = 640;
     canvas.height = 480;
-
+    
     const ctx = canvas.getContext("2d");
-    const ctx_road = canvas.getContext("2d");
     ctx.save();
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
+    for(i=0;i<5;i++){
+        
+      xpoint = i*100;
+      ctx.fillStyle = 'black';
+      ctx.arc( 100+xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      ctx.fill();
+    }
 
     const items = [];
 
-    // ランダムにオブジェクトを配置する
-    const getPos = (min, max) => {
-      return Math.round(Math.random() * (max + 1 - min) + min);
-    };
-
     [...Array(5)].forEach((_, i) => {
-      const x = getPos(0, canvas.width - 50);
-      const y = getPos(0, canvas.height - 50);
+      const x = 100 + i * 100;
+      const y = 100;
 
       const circle = new Circle(x, y, 25);
       items.push(circle);
@@ -114,7 +125,8 @@
 
       items.forEach(item => {
         if (item.testHit(point)) {
-          item.clicked(ctx, ctx_road);
+          push_count += 1;
+          item.clicked(ctx, push_count);
         }
       });
     });
