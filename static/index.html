@@ -15,6 +15,35 @@
   let push_count = 0;
   let items = [];
   const Num_of_questions = 5; //問題数
+
+  //上の円を表示する関数（オブジェクト別）
+  const UpDrawCircle = function (ctx, items){
+    [...Array(Num_of_questions)].forEach((_, i) => {
+      const x = 100 + i * 100;
+      const y = 100;
+
+      const circle = new Circle(x, y, 25);
+      items.push(circle);
+    });
+
+    // オブジェクトを描画する関数
+    items.forEach(item => item.draw(ctx));
+  }
+
+  // 下の円を表示
+  const DownDrawCircle = function (ctx){
+    for (i = 0; i < Num_of_questions; i++) {
+      xpoint = i * 100;
+      ctx.fillStyle = 'black';
+      if (i == 0 || i == Num_of_questions - 1)
+        ctx.arc(100 + xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+      else
+        ctx.arc(100 + xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+      ctx.fill();
+      if (i != Num_of_questions - 1)
+        DrawHorizontalLine(ctx, 100 + xpoint, 450); //直線の描画
+    }
+  }
   
   //下の円の色を変える関数
   const ChangeCircleColor = function (ctx, push_count){
@@ -109,30 +138,9 @@
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
-
-    // 下の丸
-    for (i = 0; i < Num_of_questions; i++) {
-      xpoint = i * 100;
-      ctx.fillStyle = 'black';
-      if (i == 0 || i == Num_of_questions - 1)
-        ctx.arc(100 + xpoint, 450, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
-      else
-        ctx.arc(100 + xpoint, 450, 10, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
-      ctx.fill();
-      if (i != Num_of_questions - 1)
-        DrawHorizontalLine(ctx, 100 + xpoint, 450); //直線の描画
-    }
-
-    [...Array(Num_of_questions)].forEach((_, i) => {
-      const x = 100 + i * 100;
-      const y = 100;
-
-      const circle = new Circle(x, y, 25);
-      items.push(circle);
-    });
-
-    // オブジェクトを描画する
-    items.forEach(item => item.draw(ctx));
+    
+    UpDrawCircle(ctx, items); //上の円を描画
+    DownDrawCircle(ctx); //下の円を描画
 
 
     canvas.addEventListener("click", e => {
