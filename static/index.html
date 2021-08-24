@@ -1,30 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゲーム</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲーム</title>
 </head>
+
 <body>
-    <canvas id="canvas" width = "1000px", height="1000px"></canvas>
+  <canvas id="app"></canvas>
 </body>
+
 </html>
 
 <script>
-    let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
-    let i = 0;
-    let xpoint;
-    const space=30;
-    for(i=0;i<5;i++){
-        
-        xpoint = i*100;
-        ctx.fillStyle = 'red';
-        ctx.arc( 100+xpoint, 100, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
-        ctx.fill()
+
+  /**
+ * オブジェクトのベースとなるクラス
+ */
+  class BaseObject {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    // 初期表示
+    draw(ctx) { }
+    // 自オブジェクトがクリックされたかどうか判定
+    testHit(point) { }
+    // クリックされたときの処理
+    clicked(ctx) { }
+  }
+
+  /**
+   * 円オブジェクトのクラス
+   */
+  class Circle extends BaseObject {
+    constructor(x, y, r) {
+      super(x, y);
+      this.r = r;
+    }
+
+    draw(ctx) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+      ctx.fillStyle = "black";
+      ctx.fill();
+      ctx.restore();
+    }
+
+    clicked(ctx, ctx_road) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.restore(); 
 
     }
-    
-    canvas.addEventListener('click',function() {alert("HELLO")}, false);
 
+    testHit(point) {
+      return (
+        Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2) <=
+        Math.pow(this.r, 2)
+      );
+    }
+  }
+
+  /**
+   * main処理
+   */
+  const main = () => {
+    const canvas = document.getElementById("app");
+
+
+    canvas.width = 640;
+    canvas.height = 480;
+
+    const ctx = canvas.getContext("2d");
+    const ctx_road = canvas.getContext("2d");
+    ctx.save();
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
+
+    const items = [];
+
+    // ランダムにオブジェクトを配置する
+    const getPos = (min, max) => {
+      return Math.round(Math.random() * (max + 1 - min) + min);
+    };
+
+    [...Array(5)].forEach((_, i) => {
+      const x = getPos(0, canvas.width - 50);
+      const y = getPos(0, canvas.height - 50);
+
+      const circle = new Circle(x, y, 25);
+      items.push(circle);
+    });
+
+    // オブジェクトを描画する
+    items.forEach(item => item.draw(ctx));
+
+
+    canvas.addEventListener("click", e => {
+      // マウスの座標をCanvas内の座標とあわせるため
+      const rect = canvas.getBoundingClientRect();
+      const point = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+
+      items.forEach(item => {
+        if (item.testHit(point)) {
+          item.clicked(ctx, ctx_road);
+        }
+      });
+    });
+  };
+
+  main();
 </script>
