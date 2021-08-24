@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム</title>
+</head>
+<body>
+    <canvas id="canvas" width = "1000px", height="1000px"></canvas>
+</body>
+</html>
+
+<script>
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    let i = 0;
+    let xpoint;
+    const space=30;
+    for(i=0;i<5;i++){
+        
+        xpoint = i*100;
+        ctx.fillStyle = 'red';
+        ctx.arc( 100+xpoint, 100, 20, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
+        ctx.fill()
+
+    }
+    
+    canvas.addEventListener('click',function() {alert("HELLO")}, false);
+
+</script>
