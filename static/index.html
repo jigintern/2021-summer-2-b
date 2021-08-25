@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゲーム</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲーム</title>
 </head>
+
 <body>
     <div id="question"></div>
     <canvas id="canvas" width = "1000px", height="1000px"></canvas>
 </body>
+
 </html>
 
-<script type=module>
-    
+<script type="module">
   import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
+  import { shuffle } from "./utils/utils.js";
 
-onload = async () => {
-  const {data} = await fetchJSON("/api/events");
-
-  let min = 0;
-  let max = 5;
-
-  // シャッフル
-  const shuffle = (array) => {
-    let currentIndex = array.length;
-    let randomIndex;
-
-    while (currentIndex != 0) {
-
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // 配列の二つの数字を交換
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
-  }
+  window.onload = async () => {
+    const { data } = await fetchJSON("/api/events");
 
   let question = (data, i) =>{
     //alert(data[i].problem);
@@ -92,17 +74,6 @@ onload = async () => {
       break;
     } else {
       break;
-    }
-  }
-  if (flg) {
-    //await bg(2583);
-    alert("避難所になんとかついた");
-    alert("おやすみ");
-    alert("TRUE END");
-  } else {
-    //await bg(3180);
-    alert("もう少し慎重に行動しよう");
-    alert("THE END");
-  }*/
-};
+    }*/
+  };
 </script>
