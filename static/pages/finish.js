@@ -5,3 +5,9 @@ export const back_home = () => {
   document.getElementById("AnswerPage").style.display = "none";
   document.getElementById("FinishPage").style.display = "none";
 };
+
+//点数書き換え
+export const change_score = (score) => {
+  let ele = document.getElementById("score");
+  ele.textContent = `${score}点`;
+}
