@@ -5,29 +5,28 @@
     "length": 4,
     "items": [
       {
-        
         "name": "懐中電灯",
         "score": 50,
         "description": "片手がふさがるので，すこし使いづらいです．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "ヘッドライト",
         "score": 70,
         "description": "両手が空くので有効だが，向けた方しか明るくなりません．",
-        "anser_num":"2"
+        "anser_num": "2"
       },
       {
         "name": "LEDランタン",
         "score": 90,
         "description": "持っていると，部屋全体を明るくすることができます．",
-        "anser_num":"3"
+        "anser_num": "3"
       },
       {
         "name": "ペットボトル",
         "score": 100,
         "description": "水を入れてスマホライトと使うと，とても明るくなります．",
-        "anser_num":"4"
+        "anser_num": "4"
       }
     ]
   },
@@ -40,31 +39,31 @@
         "name": "レインコート",
         "score": 70,
         "description": "雨風から身を守ることができ，寒さがやわらぎます．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "濡れた服",
         "score": 0,
         "description": "逆に体温が奪われてしまいます．",
-        "anser_num":"2"
+        "anser_num": "2"
       },
       {
         "name": "新聞紙",
         "score": 80,
         "description": "丸めて服の中に入れるとあたたかいです．",
-        "anser_num":"3"
+        "anser_num": "3"
       },
       {
         "name": "ポリ袋",
         "score": 80,
         "description": "ポンチョのようにして着るとあたたかいです．",
-        "anser_num":"4"
+        "anser_num": "4"
       },
       {
         "name": "毛布",
         "score": 90,
         "description": "お家や防災倉庫などにあり，手に入れやすいです．",
-        "anser_num":"5"
+        "anser_num": "5"
       }
     ]
   },
@@ -77,31 +76,31 @@
         "name": "サンダル",
         "score": 30,
         "description": "裸足よりは良いが，ケガをしやすいです．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "裸足",
         "score": 0,
         "description": "ケガをしやすく，とても危険です．",
-        "anser_num":"2"
+        "anser_num": "2"
       },
       {
         "name": "長靴",
         "score": 70,
         "description": "足は濡れにくいが，少し歩きにくさを感じます．",
-        "anser_num":"3"
+        "anser_num": "3"
       },
       {
         "name": "革靴",
         "score": 40,
         "description": "歩きにくいため，避難で疲れてしまいます．",
-        "anser_num":"4"
+        "anser_num": "4"
       },
       {
         "name": "運動靴",
         "score": 100,
         "description": "濡れても歩きやすい靴で避難することが大事です．",
-        "anser_num":"5"
+        "anser_num": "5"
       }
     ]
   },
@@ -114,13 +113,13 @@
         "name": "夜には雨が止む予報なので，夜になって避難する．",
         "score": 50,
         "description": "夜は視界が悪いため，家の上の階に",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "移動できるくらいの雨になったら，外が明るいうちに避難する．",
         "score": 100,
         "description": "浸水時には，できるだけ明るいうちに避難しよう．",
-        "anser_num":"2"
+        "anser_num": "2"
       }
     ]
   },
@@ -133,19 +132,19 @@
         "name": "濡れるのが嫌なので，橋の下で雨が止むまで雨宿りする．",
         "score": 0,
         "description": "川の水が増えると流されてしまい，とても危ないです．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "橋や川から離れて，屋根のある場所で雨宿りする．",
         "score": 60,
         "description": "安全に濡れるのを防げるが，雨が止むまで動きにくいです．",
-        "anser_num":"2"
+        "anser_num": "2"
       },
       {
         "name": "橋や川から離れて，家やお店に避難する．",
         "score": 100,
         "description": "安全に雨宿りできて，この後の天気を知れたり親と連絡をとれます．",
-        "anser_num":"3"
+        "anser_num": "3"
       }
     ]
   },
@@ -158,13 +157,13 @@
         "name": "警報が出ているので，急いで一人で避難する．",
         "score": 10,
         "description": "なにかあったとき，助けてくれる人が必要です．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "友達や近所の人と声をかけ合って，複数で避難する．",
         "score": 100,
         "description": "助け合いながら安全に避難することができます．",
-        "anser_num":"2"
+        "anser_num": "2"
       }
     ]
   },
@@ -177,19 +176,19 @@
         "name": "車を使って素早く移動する．",
         "score": 0,
         "description": "水の高さが30cmほどで車は動かなくなってしまいます．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "自転車を使って移動する．",
         "score": 0,
         "description": "滑ってケガをしたり，見えない側溝で転倒する危険があります．",
-        "anser_num":"2"
+        "anser_num": "2"
       },
       {
         "name": "棒などで道を確かめながら歩いて移動する．",
         "score": 70,
         "description": "見えない場所に危険が潜んでいるので，棒で確かめながら進みます．",
-        "anser_num":"3"
+        "anser_num": "3"
       }
     ]
   },
@@ -202,13 +201,13 @@
         "name": "エレベータを使って楽に素早く避難する",
         "score": 0,
         "description": "風で電線が切れて停電になると，エレベータの中に閉じ込められてしまいます．",
-        "anser_num":"1"
+        "anser_num": "1"
       },
       {
         "name": "階段を使って避難する",
         "score": 100,
         "description": "エレベータは止まる可能性があるので，なるべく使わないようにしましょう．",
-        "anser_num":"2"
+        "anser_num": "2"
       }
     ]
   }

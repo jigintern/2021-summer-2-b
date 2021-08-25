@@ -1,6 +1,4 @@
-import {
-  ChangeCircleColor
-} from "./canvas.js";
+import { ChangeCircleColor } from "./canvas.js";
 
 /**
  * オブジェクトのベースとなるクラス
@@ -12,11 +10,11 @@ class BaseObject {
   }
 
   // 初期表示
-  draw(ctx) { }
+  draw(ctx) {}
   // 自オブジェクトがクリックされたかどうか判定
-  testHit(point) { }
+  testHit(point) {}
   // クリックされたときの処理
-  clicked(ctx) { }
+  clicked(ctx) {}
 }
 
 /**
@@ -52,9 +50,9 @@ class Circle extends BaseObject {
   testHit(point) {
     return (
       Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2) <=
-      Math.pow(this.r, 2)
+        Math.pow(this.r, 2)
     );
   }
 }
 
-export default Circle
+export default Circle;

@@ -1,44 +1,28 @@
 /**
  * main処理
  */
-import {
-  White_canvas,
-  UpDrawCircle,
-  DownDrawCircle
-} from "./canvas.js";
+import { DownDrawCircle, White_canvas, ButtonClick } from "./canvas.js";
 
 const main = () => {
-
   let push_count = 0;
   let items = [];
 
-  const canvas = document.getElementById("app");
-
-
-  canvas.width = 640;
-  canvas.height = 480;
+  const canvas = document.getElementById("canvas");
+  const button = document.getElementById("button");
 
   const ctx = canvas.getContext("2d");
-  
+
+  canvas.width = 	document.body.clientWidth; //bodyの横幅
+  canvas.height = 200;
+
   White_canvas(ctx, canvas.width, canvas.height);
-  UpDrawCircle(ctx, items); //上の円を描画
+  // UpDrawCircle(ctx, items); //上の円を描画
   DownDrawCircle(ctx); //下の円を描画
 
-
-  canvas.addEventListener("click", e => {
-    // マウスの座標をCanvas内の座標とあわせるため
-    const rect = canvas.getBoundingClientRect();
-    const point = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    };
-
-    items.forEach(item => {
-      if (item.testHit(point)) {
-        push_count += 1; //押した回数
-        item.clicked(ctx, push_count);
-      }
-    });
+  //buttonを押した時の処理
+  button.addEventListener('click', function () {
+    ButtonClick(ctx, push_count);
+    push_count += 1;
   });
 };
 
