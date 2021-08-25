@@ -6,9 +6,14 @@
     <title>ゲーム</title>
 </head>
 <body>
-    <div id="question"></div>
-    <div id="answer"></div>
-    <canvas id="canvas" width = "1000px", height="1000px"></canvas>
+  <div id="HomePage"></div>
+  <div id="QuestionPage"></div>
+  <div id="AnswerPage"></div>
+  <div id="FinishPage">
+      <h2 id="announce">あなたの点数は</h2>
+      <p id="score">何点</p>
+      <button id="back_home">もどる</button>
+</div>
 </body>
 </html>
 
@@ -18,10 +23,7 @@
 
 onload = async () => {
   const {data} = await fetchJSON("/api/events");
-
-  let min = 0;
-  let max = 5;
-
+  let score = 0;
   // シャッフル
   const shuffle = (array) => {
     let currentIndex = array.length;
@@ -40,56 +42,14 @@ onload = async () => {
     return array;
   }
 
-  /*let question = (data, i) =>{
-    //alert(data[i].problem);
-    let cnt1 = 0;
-    let cnt2 = 0;
-    let num = 5;
-
-      btn(data[cnt1].problem, cnt1, "question", 0);
-      while(cnt2 != data[cnt1].length){
-        btn(data[cnt1].items[cnt2].name, cnt2, "answer", data[cnt1].items[cnt2].score, data[cnt1].items[cnt2].description, i);
-        cnt2++;
-      }
-      
-  }
-  
-  let btn = (data, cnt, name, score, desc, num) =>{
-    let createBtn = document.getElementById("question");
-    let btn_ele = document.createElement("h2");
-    btn_ele.id = name;
-    btn_ele.className = "problem"
-    btn_ele.textContent= cnt+1 + "." + data;
-    btn_ele.onclick = function (){
-      if(btn_ele.id == "answer"){
-        alert(score);
-        let e = document.getElementById("question");
-        let j = 0;
-        console.log(e.length);
-        console.log(e);
-        while(e.lastChild){
-        e.removeChild(e.lastChild);
-        answerpage(desc, num);
-      }
-      }
-
-      
-      
-    }
-    createBtn.appendChild(btn_ele);
-
-  }*/
-
-
-  let flg = false;
   let i = 0;
   shuffle(data);
   let firstpage = () =>{
-    let testpage = document.getElementById("question");
+    let testpage = document.getElementById("QuestionPage");
     let element = document.createElement("h2");
-    element.textContent = "Hello";
+    element.textContent = "台風";
     element.onclick = function(){
-      let f = document.getElementById("question");
+      let f = document.getElementById("QuestionPage");
       while(f.lastChild){
         
         f.removeChild(f.lastChild);
@@ -101,7 +61,7 @@ onload = async () => {
   }
 
   let questpage = (data, i) =>{
-    let question = document.getElementById("question");
+    let question = document.getElementById("QuestionPage");
     let quest_ele = document.createElement("h2");
     quest_ele.id = "question" + i;
     quest_ele.className = "question";
@@ -110,14 +70,14 @@ onload = async () => {
     
     let j=0;
     while(j != data[i].length){
-      let answer = document.getElementById("question");
+      let answer = document.getElementById("QuestionPage");
       let ans_ele = document.createElement("h2");
       ans_ele.id = j;
       ans_ele.className = "answer";
       ans_ele.textContent = data[i].items[j].anser_num + data[i].items[j].name;
       ans_ele.onclick = function(){
 
-        let f = document.getElementById("question");
+        let f = document.getElementById("QuestionPage");
         while(f.lastChild){
           f.removeChild(f.lastChild);
         }
@@ -135,18 +95,19 @@ onload = async () => {
 
     console.log(i);
     console.log(data[num].items[ans].name);
+    score += data[num].items[ans].score;
     i++;
-    let text = document.getElementById("answer");
+    let text = document.getElementById("AnswerPage");
     let text_ele = document.createElement("h2");
     text_ele.textContent = data[num].items[ans].description;
     text.appendChild(text_ele);
 
-    let ok_btn = document.getElementById("answer");
+    let ok_btn = document.getElementById("AnswerPage");
     let ok_ele = document.createElement("h2");
     ok_ele.textContent = "OK";
     ok_ele.id = "ok"
     ok_ele.onclick = function(){
-      let f = document.getElementById("answer");
+      let f = document.getElementById("AnswerPage");
         while(f.lastChild){
           f.removeChild(f.lastChild);
         }
@@ -154,6 +115,7 @@ onload = async () => {
       if(i<3){
         questpage(data,i);
       }else{
+        console.log(score);
         return;
       }
     }
@@ -164,37 +126,5 @@ onload = async () => {
   firstpage();
   console.log(i);
   
-    
-
-  /*for (;;) {
-    if (n == 1) {
-      //await bg(658);
-      alert(data[i].items[0].score);
-      alert("GAMEOVER");
-      break;
-    } else if (n == 2) {
-      //await bg(1855);
-      alert(data[i].items[1].score);
-      alert("GAMEOVER");
-      break;
-    } else if (n == 3) {
-      //await bg(23);
-      alert(data[i].items[2].score);
-      flg = true;
-      break;
-    } else {
-      break;
-    }
-  }
-  if (flg) {
-    //await bg(2583);
-    alert("避難所になんとかついた");
-    alert("おやすみ");
-    alert("TRUE END");
-  } else {
-    //await bg(3180);
-    alert("もう少し慎重に行動しよう");
-    alert("THE END");
-  }*/
 };
 </script>
