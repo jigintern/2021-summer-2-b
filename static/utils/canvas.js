@@ -33,8 +33,8 @@ export const DownDrawCircle = (ctx) => {
     if (i === 0 || i === Num_of_questions - 1) {
       ctx.arc(
         document.body.clientWidth / 6 + xpoint,
-        100,
-        25,
+        50,
+        40,
         0 * Math.PI / 180,
         360 * Math.PI / 180,
         false,
@@ -42,8 +42,8 @@ export const DownDrawCircle = (ctx) => {
     } else {
       ctx.arc(
         document.body.clientWidth / 6  + xpoint,
-        100,
-        20,
+        50,
+        30,
         0 * Math.PI / 180,
         360 * Math.PI / 180,
         false,
@@ -63,8 +63,8 @@ export const ChangeCircleColor = (ctx, push_count) => {
   if (push_count === 0 || push_count === Num_of_questions - 1) {
     ctx.arc(
       document.body.clientWidth / 6  * (push_count + 1),
-      100,
-      25,
+      50,
+      40,
       0,
       Math.PI * 2,
       true
@@ -72,8 +72,8 @@ export const ChangeCircleColor = (ctx, push_count) => {
   } else {
     ctx.arc(
       document.body.clientWidth / 6  * (push_count + 1),
-      100,
-      20,
+      50,
+      30,
       0,
       Math.PI * 2,
       true
