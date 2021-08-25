@@ -13,7 +13,7 @@ const main = () => {
   const ctx = canvas.getContext("2d");
 
   canvas.width = 	document.body.clientWidth; //bodyの横幅
-  canvas.height = 200;
+  canvas.height = 110;
 
   White_canvas(ctx, canvas.width, canvas.height);
   // UpDrawCircle(ctx, items); //上の円を描画
