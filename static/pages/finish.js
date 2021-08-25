@@ -4,6 +4,7 @@ export const back_home = () => {
   document.getElementById("QuestionPage").style.display = "none";
   document.getElementById("AnswerPage").style.display = "none";
   document.getElementById("FinishPage").style.display = "none";
+  document.getElementById("StepCanvas").style.display = "none";
 };
 
 //点数書き換え
