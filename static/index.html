@@ -6,164 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゲーム</title>
 
-  <script type=module>
-  </script>
-
 </head>
 
 <body>
   <div id="HomePage"></div>
   <div id="QuestionPage"></div>
   <div id="AnswerPage"></div>
-  <div id="FinishPage">
-      <h2 id="announce">あなたの点数は</h2>
-      <p id="score">何点</p>
-      <button id="back_home">もどる</button>
-</div>
+  <div id="FinishPage"></div>
 </body>
 
 </html>
 
-<script type=module>
+<script type="module">
 
   import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
+  import { shuffle } from "./utils/utils.js";
+  import { firstpage } from "./pages/start.js";
 
 onload = async () => {
   const {data} = await fetchJSON("/api/events");
-  let score = 0;
-  // シャッフル
-  const shuffle = (array) => {
-    let currentIndex = array.length;
-    let randomIndex;
-
-      while (currentIndex != 0) {
-
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // 配列の二つの数字を交換
-        [array[currentIndex], array[randomIndex]] = [
-          array[randomIndex], array[currentIndex]];
-      }
-
-      return array;
-    }
-
-    let question = (data, i) =>{
-      //alert(data[i].problem);
-      let cnt1 = 0;
-      let cnt2 = 0;
-      let num = 5;
-
-        btn(data[cnt1].problem, cnt1, "question", 0);
-        while(cnt2 != data[cnt1].length){
-          btn(data[cnt1].items[cnt2].name, cnt2, "answer", data[cnt1].items[cnt2].score);
-          cnt2++;
-        }
-        
-    }
-    
-    let btn = (data, cnt, name, score) =>{
-      let createBtn = document.getElementById("question");
-      let btn_ele = document.createElement("h2");
-      btn_ele.id = name;
-      btn_ele.className = "problem"
-      btn_ele.textContent= cnt+1 + "." + data;
-      btn_ele.onclick = function (){
-        if(btn_ele.id == "answer"){
-          alert(score);
-          let e = document.getElementById("question");
-          let j = 0;
-          console.log(e.length);
-          console.log(e);
-          while(e.lastChild){
-          e.removeChild(e.lastChild);
-        }
-        }
-
   let i = 0;
-  shuffle(data);
-  let firstpage = () =>{
-    let testpage = document.getElementById("QuestionPage");
-    let element = document.createElement("h2");
-    element.textContent = "台風";
-    element.onclick = function(){
-      let f = document.getElementById("QuestionPage");
-      while(f.lastChild){
-        
-        f.removeChild(f.lastChild);
+  let score = 0;
 
-      }
-      questpage(data,i);
-    }
-    testpage.appendChild(element);
-  }
-
-  let questpage = (data, i) =>{
-    let question = document.getElementById("QuestionPage");
-    let quest_ele = document.createElement("h2");
-    quest_ele.id = "question" + i;
-    quest_ele.className = "question";
-    quest_ele.textContent = data[i].problem;
-    question.appendChild(quest_ele);
-    
-    let j=0;
-    while(j != data[i].length){
-      let answer = document.getElementById("QuestionPage");
-      let ans_ele = document.createElement("h2");
-      ans_ele.id = j;
-      ans_ele.className = "answer";
-      ans_ele.textContent = data[i].items[j].anser_num + data[i].items[j].name;
-      ans_ele.onclick = function(){
-
-        let f = document.getElementById("QuestionPage");
-        while(f.lastChild){
-          f.removeChild(f.lastChild);
-        }
-        answerpage(data,i,this.id);
-        
-
-      }
-      answer.appendChild(ans_ele);
-      j++;
-    }
-    
-  }
-
-  let answerpage = (data,num,ans) =>{
-
-    console.log(i);
-    console.log(data[num].items[ans].name);
-    score += data[num].items[ans].score;
-    i++;
-    let text = document.getElementById("AnswerPage");
-    let text_ele = document.createElement("h2");
-    text_ele.textContent = data[num].items[ans].description;
-    text.appendChild(text_ele);
-
-    let ok_btn = document.getElementById("AnswerPage");
-    let ok_ele = document.createElement("h2");
-    ok_ele.textContent = "OK";
-    ok_ele.id = "ok"
-    ok_ele.onclick = function(){
-      let f = document.getElementById("AnswerPage");
-        while(f.lastChild){
-          f.removeChild(f.lastChild);
-        }
-
-      if(i<3){
-        questpage(data,i);
-      }else{
-        console.log(score);
-        return;
-      }
-    }
-    ok_btn.appendChild(ok_ele);
-    
-  }
-
-  firstpage();
+  firstpage(data, i ,score);
   console.log(i);
-  
 };
 </script>
