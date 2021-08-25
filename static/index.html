@@ -85,8 +85,31 @@
         }
         }
 
-        
-        
+
+      btn(data[cnt1].problem, cnt1, "question", 0);
+      while(cnt2 != data[cnt1].length){
+        btn(data[cnt1].items[cnt2].name, cnt2, "answer", data[cnt1].items[cnt2].score);
+        cnt2++;
+      }
+
+  }
+
+  let btn = (data, cnt, name, score) =>{
+    let createBtn = document.getElementById("question");
+    let btn_ele = document.createElement("h2");
+    btn_ele.id = name;
+    btn_ele.className = "problem"
+    btn_ele.textContent= cnt+1 + "." + data;
+    btn_ele.onclick = function (){
+      if(btn_ele.id == "answer"){
+        alert(score);
+        let e = document.getElementById("question");
+        let j = 0;
+        console.log(e.length);
+        console.log(e);
+        while(e.lastChild){
+        e.removeChild(e.lastChild);
+      }
       }
       createBtn.appendChild(btn_ele);
 
