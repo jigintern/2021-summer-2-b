@@ -1,14 +1,29 @@
-//HomePageに戻る
-export const back_home = () => {
-  document.getElementById("HomePage").style.display = "block";
-  document.getElementById("QuestionPage").style.display = "none";
-  document.getElementById("AnswerPage").style.display = "none";
-  document.getElementById("FinishPage").style.display = "none";
-  document.getElementById("StepCanvas").style.display = "none";
-};
+import {firstpage} from "./start.js";
 
-//点数書き換え
-export const change_score = (score) => {
-  let ele = document.getElementById("score");
-  ele.textContent = `${score}点`;
-};
+export const finishpage = (data, i, score) => {
+  let _finishpage = document.getElementById("FinishPage");
+  let _finish_ele = document.createElement("h2");
+
+  _finish_ele.id = "announce";
+  _finish_ele.textContent = "あなたの点数は";
+  _finishpage.appendChild(_finish_ele);
+
+  let score_ele = document.createElement("p");
+  score_ele.id = "score";
+  score_ele.textContent = `${score}点`;
+  _finishpage.appendChild(score_ele);
+
+  let back_button_ele = document.createElement("buttton");
+  back_button_ele.id = "back_home_button";
+  back_button_ele.textContent = "もどる";
+  back_button_ele.onclick = () => {
+    let f = document.getElementById("FinishPage");
+    while(f.lastChild){
+      f.removeChild(f.lastChild);
+    }
+    score = 0;
+    i = 0;
+    firstpage(data, i, score);
+  }
+  _finishpage.appendChild(back_button_ele);
+}
