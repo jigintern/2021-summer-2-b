@@ -6,6 +6,7 @@
     <title>ゲーム</title>
 </head>
 <body>
+    <div id="question"></div>
     <canvas id="canvas" width = "1000px", height="1000px"></canvas>
 </body>
 </html>
@@ -39,26 +40,40 @@ onload = async () => {
   }
 
   let question = (data, i) =>{
-    alert(data[i].problem);
+    //alert(data[i].problem);
     let cnt = 0;
-    let num = data[i].length-1
+    let num = 5;
 
     while(cnt != num){
-      console.log(data[i].items[cnt].name);
+      btn(data[cnt], cnt);
       cnt++;
     }
-  
-    
-
   }
   
+  let btn = (data, cnt) =>{
+    let createBtn = document.getElementById("question");
+    let btn_ele = document.createElement("h2");
+    btn_ele.id = cnt;
+    btn_ele.textContent= data;
+    btn_ele.onclick = function (){
+      alert(data.items[0].score);
+      let e = document.getElementById(cnt);
+      e.remove();
+    }
+    createBtn.appendChild(btn_ele);
+
+  }
+
+  btn("アイウエオ",1);
   let flg = false;
   let i = 0;
   shuffle(data);
   while(data[i]!="null"){
-    question(data,i);
+    //question(data,i);
+    btn(data[i],1);
     i++;
   }
+
   /*for (;;) {
     if (n == 1) {
       //await bg(658);
