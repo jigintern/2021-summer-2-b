@@ -11,4 +11,4 @@ export const back_home = () => {
 export const change_score = (score) => {
   let ele = document.getElementById("score");
   ele.textContent = `${score}点`;
-}
+};
