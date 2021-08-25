@@ -7,6 +7,7 @@
 </head>
 <body>
     <div id="question"></div>
+    <div id="answer"></div>
     <canvas id="canvas" width = "1000px", height="1000px"></canvas>
 </body>
 </html>
@@ -39,7 +40,7 @@ onload = async () => {
     return array;
   }
 
-  let question = (data, i) =>{
+  /*let question = (data, i) =>{
     //alert(data[i].problem);
     let cnt1 = 0;
     let cnt2 = 0;
@@ -47,13 +48,13 @@ onload = async () => {
 
       btn(data[cnt1].problem, cnt1, "question", 0);
       while(cnt2 != data[cnt1].length){
-        btn(data[cnt1].items[cnt2].name, cnt2, "answer", data[cnt1].items[cnt2].score);
+        btn(data[cnt1].items[cnt2].name, cnt2, "answer", data[cnt1].items[cnt2].score, data[cnt1].items[cnt2].description, i);
         cnt2++;
       }
       
   }
   
-  let btn = (data, cnt, name, score) =>{
+  let btn = (data, cnt, name, score, desc, num) =>{
     let createBtn = document.getElementById("question");
     let btn_ele = document.createElement("h2");
     btn_ele.id = name;
@@ -68,6 +69,7 @@ onload = async () => {
         console.log(e);
         while(e.lastChild){
         e.removeChild(e.lastChild);
+        answerpage(desc, num);
       }
       }
 
@@ -76,13 +78,92 @@ onload = async () => {
     }
     createBtn.appendChild(btn_ele);
 
-  }
+  }*/
 
 
   let flg = false;
   let i = 0;
   shuffle(data);
-  question(data,i);
+  let firstpage = () =>{
+    let testpage = document.getElementById("question");
+    let element = document.createElement("h2");
+    element.textContent = "Hello";
+    element.onclick = function(){
+      let f = document.getElementById("question");
+      while(f.lastChild){
+        
+        f.removeChild(f.lastChild);
+
+      }
+      questpage(data,i);
+    }
+    testpage.appendChild(element);
+  }
+
+  let questpage = (data, i) =>{
+    let question = document.getElementById("question");
+    let quest_ele = document.createElement("h2");
+    quest_ele.id = "question" + i;
+    quest_ele.className = "question";
+    quest_ele.textContent = data[i].problem;
+    question.appendChild(quest_ele);
+    
+    let j=0;
+    while(j != data[i].length){
+      let answer = document.getElementById("question");
+      let ans_ele = document.createElement("h2");
+      ans_ele.id = j;
+      ans_ele.className = "answer";
+      ans_ele.textContent = data[i].items[j].anser_num + data[i].items[j].name;
+      ans_ele.onclick = function(){
+
+        let f = document.getElementById("question");
+        while(f.lastChild){
+          f.removeChild(f.lastChild);
+        }
+        answerpage(data,i,this.id);
+        
+
+      }
+      answer.appendChild(ans_ele);
+      j++;
+    }
+    
+  }
+
+  let answerpage = (data,num,ans) =>{
+
+    console.log(i);
+    console.log(data[num].items[ans].name);
+    i++;
+    let text = document.getElementById("answer");
+    let text_ele = document.createElement("h2");
+    text_ele.textContent = data[num].items[ans].description;
+    text.appendChild(text_ele);
+
+    let ok_btn = document.getElementById("answer");
+    let ok_ele = document.createElement("h2");
+    ok_ele.textContent = "OK";
+    ok_ele.id = "ok"
+    ok_ele.onclick = function(){
+      let f = document.getElementById("answer");
+        while(f.lastChild){
+          f.removeChild(f.lastChild);
+        }
+
+      if(i<3){
+        questpage(data,i);
+      }else{
+        return;
+      }
+    }
+    ok_btn.appendChild(ok_ele);
+    
+  }
+
+  firstpage();
+  console.log(i);
+  
     
 
   /*for (;;) {
