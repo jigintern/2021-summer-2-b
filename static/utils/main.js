@@ -8,7 +8,6 @@ const main = () => {
   let items = [];
 
   const canvas = document.getElementById("canvas");
-  const button = document.getElementById("button");
 
   const ctx = canvas.getContext("2d");
 
@@ -19,11 +18,7 @@ const main = () => {
   // UpDrawCircle(ctx, items); //上の円を描画
   DownDrawCircle(ctx); //下の円を描画
 
-  //buttonを押した時の処理
-  button.addEventListener('click', function () {
-    ButtonClick(ctx, push_count);
-    push_count += 1;
-  });
+  document.getElementById("canvas").style.display = "none";
 };
 
 export default main;

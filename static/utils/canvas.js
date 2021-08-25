@@ -6,7 +6,7 @@ const Num_of_questions = 5; //問題数
 // canvasを白く戻す関数
 export const White_canvas = (ctx, x, y) => {
   ctx.save();
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#f9f9f9";
   ctx.fillRect(0, 0, x, y);
   ctx.restore();
 };
