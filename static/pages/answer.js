@@ -1,5 +1,6 @@
 import { finishpage } from "./finish.js"
 import { questpage } from "./question.js";
+import { ButtonClick } from "../utils/canvas.js";
 
 export const answerpage = (data,i,ans, score) =>{
 
@@ -14,7 +15,7 @@ export const answerpage = (data,i,ans, score) =>{
     item_score.textContent = data[i].items[ans].score + "点";
     text.appendChild(item_score);
 
-    let text_ele = document.createElement("h2");
+    let text_ele = document.createElement("h4");
     text_ele.textContent = data[i].items[ans].description;
     text.appendChild(text_ele);
 
@@ -27,14 +28,16 @@ export const answerpage = (data,i,ans, score) =>{
         while(f.lastChild){
           f.removeChild(f.lastChild);
         }
-
+    const ctx = canvas.getContext("2d");
+    i++;
+    ButtonClick(ctx, i+1);
       if(i<3){
         questpage(data,i,score);
       }else{
         console.log(score);
+        const ctx = canvas.getContext("2d");
         finishpage(data, i, score);
       }
     }
     ok_btn.appendChild(ok_ele);
-    i++;
   }

@@ -1,14 +1,15 @@
+import { DownDrawCircle } from "../utils/canvas.js";
 import {firstpage} from "./start.js";
 
 export const finishpage = (data, i, score) => {
   let _finishpage = document.getElementById("FinishPage");
-  let _finish_ele = document.createElement("h2");
+  let _finish_ele = document.createElement("h4");
 
   _finish_ele.id = "announce";
   _finish_ele.textContent = "あなたの点数は";
   _finishpage.appendChild(_finish_ele);
 
-  let score_ele = document.createElement("p");
+  let score_ele = document.createElement("h2");
   score_ele.id = "score";
   score_ele.textContent = `${score}点`;
   _finishpage.appendChild(score_ele);
@@ -23,6 +24,10 @@ export const finishpage = (data, i, score) => {
     }
     score = 0;
     i = 0;
+
+    const ctx = canvas.getContext("2d");
+    DownDrawCircle(ctx);
+    document.getElementById("canvas").style.display = "none";
     firstpage(data, i, score);
   }
   _finishpage.appendChild(back_button_ele);

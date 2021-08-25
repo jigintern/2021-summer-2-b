@@ -11,7 +11,7 @@ export const  questpage = (data, i, score) =>{
     let j=0;
     while(j != data[i].length){
       let answer = document.getElementById("QuestionPage");
-      let ans_ele = document.createElement("h2");
+      let ans_ele = document.createElement("h4");
       ans_ele.id = j;
       ans_ele.className = "answer";
       ans_ele.textContent = data[i].items[j].anser_num + data[i].items[j].name;
