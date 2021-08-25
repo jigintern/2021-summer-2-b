@@ -60,28 +60,28 @@ export const DownDrawCircle = (ctx) => {
 export const ChangeCircleColor = (ctx, push_count) => {
   ctx.save();
   ctx.beginPath();
-  if( push_count === 1 || push_count === Num_of_questions){
+  if (push_count === 0 || push_count === Num_of_questions - 1) {
     ctx.arc(
-      100 * push_count, 
-      100, 
-      20, 
-      0, 
-      Math.PI * 2, 
+      100 * (push_count + 1),
+      100,
+      20,
+      0,
+      Math.PI * 2,
       true
     );
-  }else{
+  } else {
     ctx.arc(
-      100 * push_count, 
-      100, 
-      15, 
-      0, 
-      Math.PI * 2, 
+      100 * (push_count + 1),
+      100,
+      15,
+      0,
+      Math.PI * 2,
       true
     );
   }
-    ctx.fillStyle = "#3399CC";
-    ctx.fill();
-    ctx.restore();
+  ctx.fillStyle = "#3399CC";
+  ctx.fill();
+  ctx.restore();
 };
 
 // 直線をかく関数
