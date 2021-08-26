@@ -25,12 +25,12 @@ export const answerpage = (data,i,ans, score) =>{
     ok_ele.id = "ok"
     ok_ele.onclick = function(){
       let f = document.getElementById("AnswerPage");
-        while(f.lastChild){
-          f.removeChild(f.lastChild);
-        }
-    const ctx = canvas.getContext("2d");
-    i++;
-    ButtonClick(ctx, i+1);
+      while(f.lastChild){
+        f.removeChild(f.lastChild);
+      }
+      const ctx = canvas.getContext("2d");
+      i++;
+      ButtonClick(ctx, i);
       if(i<3){
         questpage(data,i,score);
       }else{
