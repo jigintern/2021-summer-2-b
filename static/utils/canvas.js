@@ -32,7 +32,7 @@ export const DownDrawCircle = (ctx) => {
     ctx.fillStyle = "#BBBBBB";
     ctx.arc(
       document.body.clientWidth / (Num_of_questions + 1) + xpoint,
-      100,
+      50,
       30,
       0 * Math.PI / 180,
       360 * Math.PI / 180,
@@ -51,7 +51,7 @@ export const ChangeCircleColor = (ctx, push_count) => {
   ctx.beginPath();
   ctx.arc(
     document.body.clientWidth / (Num_of_questions + 1)  * push_count,
-    100,
+    50,
     30,
     0,
     Math.PI * 2,
