@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゲーム</title>
-  <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+
 </head>
 
 <body>
@@ -13,8 +13,8 @@
   <div id="QuestionPage"></div>
   <div id="AnswerPage"></div>
   <div id="FinishPage"></div>
-  <canvas id="canvas"></canvas>
 </body>
+<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
 
 </html>
 
@@ -23,15 +23,13 @@
   import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
   import { shuffle } from "./utils/utils.js";
   import { firstpage } from "./pages/start.js";
-  import main from "./utils/main.js";
 
 onload = async () => {
-  const {data} = await fetchJSON("/api/events");
+  //const {data} = await fetchJSON("/api/events");
   let i = 0;
   let score = 0;
 
-  main();
-  firstpage(data, i ,score);
+  firstpage(i ,score);
   console.log(i);
 };
 </script>
