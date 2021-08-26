@@ -1,0 +1,18 @@
+#AnswerPage {
+  text-align: center;
+}
+
+#AnswerPage > #ok{
+  padding: 10px 60px;
+  border-radius: 40px;
+  color: black;
+  background-color: white;
+}
+
+#AnswerPage > #ok:hover{
+  background-color: #3399CC;
+  border-color: #3399CC;
+  color: #f9f9f9;
+  font-weight: bold;
+  outline: 0; 
+}
