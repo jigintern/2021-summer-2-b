@@ -27,3 +27,7 @@
     color: #f9f9f9;
     outline: 0;
 }
+
+#QuestionPage > #last{
+    border-bottom: 1px solid black;
+}
