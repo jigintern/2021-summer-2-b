@@ -14,8 +14,6 @@ export const firstpage = (data, i, score) => {
         f.removeChild(f.lastChild);
       }
       const ctx = canvas.getContext("2d");
-      ButtonClick(ctx, 0);
-      ButtonClick(ctx,1);
       document.getElementById("canvas").style.display = "block";
       questpage(data,i,score);
     }
