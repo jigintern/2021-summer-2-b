@@ -10,7 +10,6 @@ export const  questpage = (data, i, score) =>{
 
     let subject_ele = document.createElement("h2");
     subject_ele.id = "subject";
-    subject_ele.className = "question";
     subject_ele.textContent = data[i].subject;
     question.appendChild(subject_ele);
 
@@ -23,7 +22,6 @@ export const  questpage = (data, i, score) =>{
       ans_ele.className = "answer";
       ans_ele.textContent = data[i].items[j].name;
       ans_ele.onclick = function(){
-
         let f = document.getElementById("QuestionPage");
         while(f.lastChild){
           f.removeChild(f.lastChild);
@@ -33,4 +31,4 @@ export const  questpage = (data, i, score) =>{
       answer.appendChild(ans_ele);
       j++;
     }
-  }
+}

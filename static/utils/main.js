@@ -1,7 +1,7 @@
 /**
  * main処理
  */
-import { DownDrawCircle, White_canvas, ButtonClick } from "./canvas.js";
+import { DownDrawCircle,} from "./canvas.js";
 
 const main = () => {
   let push_count = 0;
@@ -12,7 +12,7 @@ const main = () => {
   const ctx = canvas.getContext("2d");
 
   canvas.width = 	document.body.clientWidth; //bodyの横幅
-  canvas.height = 200;
+  canvas.height = 100;
 
   //White_canvas(ctx, canvas.width, canvas.height);
   // UpDrawCircle(ctx, items); //上の円を描画
