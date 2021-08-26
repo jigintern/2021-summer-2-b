@@ -1,6 +1,15 @@
 .container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
   width: 95vw;
   height: 60vh;
   border: 3px solid;
   border-radius: 10px;
+}
+
+*{
+  text-align: center;
 }
