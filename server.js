@@ -5,7 +5,7 @@ class MyServer extends Server {
   api(path, req) {
     switch (path) {
       case "/api/events":
-        return getEvents();
+        return getEvents(req);
     }
   }
 }
