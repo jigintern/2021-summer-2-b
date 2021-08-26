@@ -21,3 +21,7 @@
 #AnswerPage > p{
   font-size: x-large;
 }
+
+#prob_score{
+  font-size: 3rem;
+}

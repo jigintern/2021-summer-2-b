@@ -11,11 +11,11 @@ export const finishpage = (data, i, score) => {
   _finishpage.appendChild(_finish_ele);
 
   let score_ele = document.createElement("h2");
-  score_ele.id = "score";
+  score_ele.id = "all_score";
   score_ele.textContent = `${score}点`;
   _finishpage.appendChild(score_ele);
 
-  let back_button_ele = document.createElement("buttton");
+  let back_button_ele = document.createElement("button");
   back_button_ele.id = "back_home_button";
   back_button_ele.textContent = "もどる";
   back_button_ele.onclick = () => {
