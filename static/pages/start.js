@@ -13,6 +13,8 @@ export const firstpage = (i, score) => {
       while(f.lastChild){
         f.removeChild(f.lastChild);
       }
+      const ctx = canvas.getContext("2d");
+      document.getElementById("canvas").style.display = "block";
       questpage(data,i,score);
     }
     testpage.appendChild(element);
@@ -25,6 +27,8 @@ export const firstpage = (i, score) => {
       while(f.lastChild){
         f.removeChild(f.lastChild);
       }
+      const ctx = canvas.getContext("2d");
+      document.getElementById("canvas").style.display = "block";
       questpage(data,i,score);
     }
     testpage.appendChild(fire);
