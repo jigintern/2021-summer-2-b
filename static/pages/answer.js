@@ -15,12 +15,12 @@ export const answerpage = (data,i,ans, score) =>{
     item_score.textContent = data[i].items[ans].score + "点";
     text.appendChild(item_score);
 
-    let text_ele = document.createElement("h4");
+    let text_ele = document.createElement("p");
     text_ele.textContent = data[i].items[ans].description;
     text.appendChild(text_ele);
 
     let ok_btn = document.getElementById("AnswerPage");
-    let ok_ele = document.createElement("h2");
+    let ok_ele = document.createElement("button");
     ok_ele.textContent = "OK";
     ok_ele.id = "ok"
     ok_ele.onclick = function(){
