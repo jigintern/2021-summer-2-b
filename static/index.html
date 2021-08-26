@@ -5,18 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゲーム</title>
-  <!-- <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css"> -->
-  <link rel="stylesheet" href="css/canvas.css" type="text/css">
-  <link rel="stylesheet" href="css/question.css" type="text/css">
-  <link rel="stylesheet" href="css/answer.css" type="text/css">
-  <style>
-    .container{
-      width: 95vw;
-      height: 60vh;
-      border: 3px solid;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/index.css" type="text/css">
 </head>
 
 <body>
@@ -35,11 +24,11 @@
 
   import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
   import { shuffle } from "./utils/utils.js";
-  import { firstpage } from "./pages/home.js";
+  import { homepage } from "./pages/home.js";
   import main from "./utils/main.js";
 
 onload = async () => {
   main();
-  firstpage();
+  homepage();
 };
 </script>

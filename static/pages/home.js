@@ -2,14 +2,20 @@ import { shuffle } from "../utils/utils.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 import { startpage } from "./start.js";
 
+export const homepage = () => {
+  let i = 0;
+  let score = 0;
+  let page = document.getElementById("HomePage");
 
-export const firstpage = () => {
- 
+  let modes = document.createElement("div");
+  modes.id = "modes";
+  page.appendChild(modes);
 
-  let testpage = document.getElementById("HomePage");
-  let element = document.createElement("h2");
-  element.textContent = "台風";
-  element.onclick = async function () {
+  let div = document.createElement("div");
+  let typhoon = document.createElement("button");
+  typhoon.textContent = "台風";
+  typhoon.className = "mode";
+  typhoon.onclick = async function () {
     const { data } = await fetchJSON("/api/events?subject=typhoon");
     shuffle(data);
     let f = document.getElementById("HomePage");
@@ -18,9 +24,12 @@ export const firstpage = () => {
     }
     startpage(this.textContent, data);
   };
-  testpage.appendChild(element);
-  let fire = document.createElement("h2");
+  div.appendChild(typhoon);
+  modes.appendChild(div);
+  div = document.createElement("div");
+  let fire = document.createElement("button");
   fire.textContent = "火災";
+  fire.className = "mode";
   fire.onclick = async function () {
     const { data } = await fetchJSON("/api/events?subject=fire");
     shuffle(data);
@@ -30,6 +39,6 @@ export const firstpage = () => {
     }
     startpage(this.textContent, data);
   };
-
-  testpage.appendChild(fire);
+  div.appendChild(fire);
+  modes.appendChild(div);
 };
