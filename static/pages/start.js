@@ -1,23 +1,31 @@
 import { questpage } from "./question.js";
 import { ButtonClick } from "../utils/canvas.js";
+import { homepage } from "./home.js";
 
 export const startpage = (categoly, data) =>{
     let i = 0;
     let score = 0;
-    let title = document.getElementById("HomePage");
+    let page = document.getElementById("StartPage");
+    page.className = categoly;
+
     let title_ele = document.createElement("h1");
     title_ele.textContent=categoly;
     title_ele.id = "explain";
-    title.appendChild(title_ele);
+    page.appendChild(title_ele);
 
     let centence = document.createElement("h2");
     centence.textContent = categoly + "に関するクイズです";
-    title.appendChild(centence);
-    
-    let btn_ele = document.createElement("button");
-    btn_ele.textContent = "START";
-    btn_ele.onclick = () =>{
-        let f = document.getElementById("HomePage");
+    page.appendChild(centence);
+
+    let choices = document.createElement("div");
+    choices.id = "choices";
+    page.appendChild(choices);
+
+    let div = document.createElement("div");
+    let start_btn_ele = document.createElement("button");
+    start_btn_ele.textContent = "START";
+    start_btn_ele.onclick = () =>{
+        let f = document.getElementById("StartPage");
         while (f.lastChild) {
             f.removeChild(f.lastChild);
         }
@@ -25,7 +33,20 @@ export const startpage = (categoly, data) =>{
         ButtonClick(ctx, 0);
         document.getElementById("canvas").style.display = "block";
         questpage(data, i, score);
-        
     }
-    title.appendChild(btn_ele);
+    div.appendChild(start_btn_ele);
+    choices.appendChild(div);
+
+    div = document.createElement("div");
+    let back_btn_ele = document.createElement("button");
+    back_btn_ele.textContent = "もどる";
+    back_btn_ele.onclick = () => {
+        let f = document.getElementById("StartPage");
+        while (f.lastChild) {
+            f.removeChild(f.lastChild);
+        }
+        homepage();
+    }
+    div.appendChild(back_btn_ele);
+    choices.appendChild(div);
 }
