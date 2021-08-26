@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+#QuestionPage > #subject{
+    height: 7vh;
+}
+
 #QuestionPage > .answer{
     display: block;
     width: 100%;
@@ -25,5 +29,10 @@
     background-color: #3399CC;
     border-color: #3399CC;
     color: #f9f9f9;
+    font-weight: bold;
     outline: 0;
+}
+
+#QuestionPage > #last{
+    border-bottom: 1px solid black;
 }

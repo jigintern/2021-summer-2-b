@@ -3,7 +3,7 @@ import { questpage } from "./question.js";
 import { ButtonClick } from "../utils/canvas.js";
 
 export const answerpage = (data,i,ans, score) =>{
-
+    if(ans=="last") ans=data[i].length-1;
     console.log(i);
     console.log(data[i].items[ans].name);
     console.log(data[i].items[ans].score);
