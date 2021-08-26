@@ -1,7 +1,6 @@
 import { DownDrawCircle } from "../utils/canvas.js";
 
-import {homepage} from "./home.js";
-
+import { homepage } from "./home.js";
 
 export const finishpage = (data, i, score) => {
   let _finishpage = document.getElementById("FinishPage");
@@ -21,7 +20,7 @@ export const finishpage = (data, i, score) => {
   back_button_ele.textContent = "もどる";
   back_button_ele.onclick = () => {
     let f = document.getElementById("FinishPage");
-    while(f.lastChild){
+    while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
 
@@ -29,6 +28,6 @@ export const finishpage = (data, i, score) => {
     DownDrawCircle(ctx);
     document.getElementById("canvas").style.display = "none";
     homepage();
-  }
+  };
   _finishpage.appendChild(back_button_ele);
-}
+};
