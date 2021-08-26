@@ -1,10 +1,10 @@
-#modes{
+#choices{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#modes > div > button{
+#choices > div > button{
     height: 80px;
     text-align: center;
     font-size: 30px;
@@ -14,7 +14,7 @@
     border: 1px solid #000000;
 }
 
-#modes > div > button:hover{
+#choices > div > button:hover{
     background-color: #3399CC;
     border-color: #3399CC;
     color: #f9f9f9;

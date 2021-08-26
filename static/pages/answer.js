@@ -30,7 +30,7 @@ export const answerpage = (data,i,ans, score) =>{
 
     let ok_btn = document.getElementById("AnswerPage");
     let ok_ele = document.createElement("button");
-    ok_ele.textContent = "OK";
+    ok_ele.textContent = "次の問題";
     ok_ele.id = "ok"
     ok_ele.onclick = function(){
       let f = document.getElementById("AnswerPage");
