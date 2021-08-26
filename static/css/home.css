@@ -1,0 +1,20 @@
+#modes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#modes > div > .mode{
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 60px;
+    border-radius: 20px;
+}
+
+#modes > div > .mode:hover{
+    background-color: #3399CC;
+    border-color: #3399CC;
+    color: #f9f9f9;
+    font-weight: bold;
+    outline: 0;
+  }
