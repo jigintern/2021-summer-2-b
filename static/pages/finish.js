@@ -1,5 +1,7 @@
 import { DownDrawCircle } from "../utils/canvas.js";
+
 import {firstpage} from "./home.js";
+
 
 export const finishpage = (data, i, score) => {
   let _finishpage = document.getElementById("FinishPage");
@@ -26,7 +28,7 @@ export const finishpage = (data, i, score) => {
     const ctx = canvas.getContext("2d");
     DownDrawCircle(ctx);
     document.getElementById("canvas").style.display = "none";
-    firstpage();
+    homepage();
   }
   _finishpage.appendChild(back_button_ele);
 }

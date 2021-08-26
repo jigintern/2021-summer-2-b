@@ -1,0 +1,19 @@
+#FinishPage {
+  text-align: center;
+}
+
+#FinishPage > #back_home_button{
+  padding: 10px 60px;
+  border-radius: 40px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#FinishPage > #back_home_button:hover{
+  background-color: #3399CC;
+  border-color: #3399CC;
+  color: #f9f9f9;
+  font-weight: bold;
+  outline: 0; 
+}
