@@ -1,6 +1,6 @@
 // import Circle from "./class.js";
 
-const Num_of_questions = 5; //問題数
+const Num_of_questions = 3; //問題数
 
 
 // canvasを白く戻す関数
@@ -28,27 +28,16 @@ export const White_canvas = (ctx, x, y) => {
 // 下の円を表示する関数
 export const DownDrawCircle = (ctx) => {
   for (let i = 0; i < Num_of_questions; i++) {
-    let xpoint = i * document.body.clientWidth / 6 ;
+    let xpoint = i * document.body.clientWidth / (Num_of_questions + 1) ;
     ctx.fillStyle = "#BBBBBB";
-    if (i === 0 || i === Num_of_questions - 1) {
-      ctx.arc(
-        document.body.clientWidth / 6 + xpoint,
-        100,
-        25,
-        0 * Math.PI / 180,
-        360 * Math.PI / 180,
-        false,
-      );
-    } else {
-      ctx.arc(
-        document.body.clientWidth / 6  + xpoint,
-        100,
-        20,
-        0 * Math.PI / 180,
-        360 * Math.PI / 180,
-        false,
-      );
-    }
+    ctx.arc(
+      document.body.clientWidth / (Num_of_questions + 1) + xpoint,
+      100,
+      30,
+      0 * Math.PI / 180,
+      360 * Math.PI / 180,
+      false,
+    );
     ctx.fill();
     // if (i != Num_of_questions - 1) {
     //   DrawHorizontalLine(ctx, 100 + xpoint, 100); //直線の描画
@@ -60,25 +49,14 @@ export const DownDrawCircle = (ctx) => {
 export const ChangeCircleColor = (ctx, push_count) => {
   ctx.save();
   ctx.beginPath();
-  if (push_count === 0 || push_count === Num_of_questions - 1) {
-    ctx.arc(
-      document.body.clientWidth / 6  * (push_count + 1),
-      100,
-      25,
-      0,
-      Math.PI * 2,
-      true
-    );
-  } else {
-    ctx.arc(
-      document.body.clientWidth / 6  * (push_count + 1),
-      100,
-      20,
-      0,
-      Math.PI * 2,
-      true
-    );
-  }
+  ctx.arc(
+    document.body.clientWidth / (Num_of_questions + 1)  * push_count,
+    100,
+    30,
+    0,
+    Math.PI * 2,
+    true
+  );
   ctx.fillStyle = "#3399CC";
   ctx.fill();
   ctx.restore();
@@ -97,8 +75,7 @@ export const ChangeCircleColor = (ctx, push_count) => {
 
 // ボタンを押した時の処理
 export const ButtonClick = (ctx, push_count) => {
-  if (push_count < Num_of_questions) {
-    console.log("aaa");
+  if (push_count <= Num_of_questions) {
     ChangeCircleColor(ctx, push_count);
   }
 };
