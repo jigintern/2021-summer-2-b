@@ -12,7 +12,7 @@ export const answerpage = (data,i,ans, score) =>{
 
     let text = document.getElementById("AnswerPage");
 
-    let question_text = document.createElement("h3");
+    let question_text = document.createElement("h2");
     question_text.textContent = "問題：" + data[i].problem;
     text.appendChild(question_text);
 
