@@ -1,7 +1,6 @@
 import { shuffle } from "../utils/utils.js";
-import { questpage } from "./question.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
-import { ButtonClick } from "../utils/canvas.js";
+import { startpage } from "./start.js";
 
 export const homepage = () => {
   let i = 0;
@@ -23,10 +22,7 @@ export const homepage = () => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
-    const ctx = canvas.getContext("2d");
-    ButtonClick(ctx, 0);
-    document.getElementById("canvas").style.display = "block";
-    questpage(data, i, score);
+    startpage(this.textContent, data);
   };
   div.appendChild(typhoon);
   modes.appendChild(div);
@@ -41,10 +37,7 @@ export const homepage = () => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
-    const ctx = canvas.getContext("2d");
-    ButtonClick(ctx, 0);
-    document.getElementById("canvas").style.display = "block";
-    questpage(data, i, score);
+    startpage(this.textContent, data);
   };
   div.appendChild(fire);
   modes.appendChild(div);
