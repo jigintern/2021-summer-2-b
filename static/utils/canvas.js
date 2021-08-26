@@ -2,7 +2,6 @@
 
 const Num_of_questions = 3; //問題数
 
-
 // canvasを白く戻す関数
 export const White_canvas = (ctx, x, y) => {
   ctx.save();
@@ -27,11 +26,11 @@ export const White_canvas = (ctx, x, y) => {
 
 // 下の円を表示する関数
 export const DownDrawCircle = (ctx) => {
-  for (let i = 0; i < Num_of_questions; i++) {
+  for (let i = 1; i <= Num_of_questions; i++) {
     let xpoint = i * document.body.clientWidth / (Num_of_questions + 1) ;
     ctx.fillStyle = "#BBBBBB";
     ctx.arc(
-      document.body.clientWidth / (Num_of_questions + 1) + xpoint,
+      xpoint,
       50,
       30,
       0 * Math.PI / 180,
