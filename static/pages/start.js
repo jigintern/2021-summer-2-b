@@ -1,23 +1,36 @@
-import { ButtonClick } from "../utils/canvas.js";
 import {shuffle} from "../utils/utils.js";
 import {questpage} from "./question.js";
+import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 
-export const firstpage = (data, i, score) => {
-    shuffle(data);
+export const firstpage = (i, score) => {
     let testpage = document.getElementById("QuestionPage");
     let element = document.createElement("h2");
     element.textContent = "台風";
-    element.onclick = function(){
-
+    element.onclick = async function(){
+      const {data} = await fetchJSON("/api/events");
+      shuffle(data);
       let f = document.getElementById("QuestionPage");
       while(f.lastChild){
         f.removeChild(f.lastChild);
       }
       const ctx = canvas.getContext("2d");
-      ButtonClick(ctx, 0);
-      ButtonClick(ctx,1);
       document.getElementById("canvas").style.display = "block";
       questpage(data,i,score);
     }
     testpage.appendChild(element);
+    let fire = document.createElement("h2");
+    fire.textContent = "火災";
+    fire.onclick = async function(){
+      const {data} = await fetchJSON("/api/events");
+      shuffle(data);
+      let f = document.getElementById("QuestionPage");
+      while(f.lastChild){
+        f.removeChild(f.lastChild);
+      }
+      const ctx = canvas.getContext("2d");
+      document.getElementById("canvas").style.display = "block";
+      questpage(data,i,score);
+    }
+    testpage.appendChild(fire);
+    
   }
