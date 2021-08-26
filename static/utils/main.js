@@ -14,7 +14,7 @@ const main = () => {
   canvas.width = 	document.body.clientWidth; //bodyの横幅
   canvas.height = 200;
 
-  White_canvas(ctx, canvas.width, canvas.height);
+  //White_canvas(ctx, canvas.width, canvas.height);
   // UpDrawCircle(ctx, items); //上の円を描画
   DownDrawCircle(ctx); //下の円を描画
 

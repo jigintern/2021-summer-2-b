@@ -11,10 +11,10 @@ export const  questpage = (data, i, score) =>{
     let j=0;
     while(j != data[i].length){
       let answer = document.getElementById("QuestionPage");
-      let ans_ele = document.createElement("h4");
+      let ans_ele = document.createElement("button");
       ans_ele.id = j;
       ans_ele.className = "answer";
-      ans_ele.textContent = data[i].items[j].anser_num + data[i].items[j].name;
+      ans_ele.textContent = data[i].items[j].name;
       ans_ele.onclick = function(){
 
         let f = document.getElementById("QuestionPage");
