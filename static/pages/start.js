@@ -1,6 +1,7 @@
 import { shuffle } from "../utils/utils.js";
 import { questpage } from "./question.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
+import { ButtonClick } from "../utils/canvas.js";
 
 export const firstpage = (i, score) => {
   let testpage = document.getElementById("HomePage");
@@ -14,6 +15,7 @@ export const firstpage = (i, score) => {
       f.removeChild(f.lastChild);
     }
     const ctx = canvas.getContext("2d");
+    ButtonClick(ctx, 0);
     document.getElementById("canvas").style.display = "block";
     questpage(data, i, score);
   };
@@ -28,6 +30,7 @@ export const firstpage = (i, score) => {
       f.removeChild(f.lastChild);
     }
     const ctx = canvas.getContext("2d");
+    ButtonClick(ctx, 0);
     document.getElementById("canvas").style.display = "block";
     questpage(data, i, score);
   };
