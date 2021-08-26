@@ -5,7 +5,7 @@
 #announce {
   font-size: 2rem;
 }
-#score {
+#all_score {
   font-size: 3rem;
 }
 
@@ -23,5 +23,5 @@
   border-color: #3399CC;
   color: #f9f9f9;
   font-weight: bold;
-  outline: 0; 
+  outline: 0;
 }

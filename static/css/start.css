@@ -1,7 +1,17 @@
+#StartPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #choices{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#StartPage > div > img{
+    border-radius: 20px;
 }
 
 #choices > div > button{

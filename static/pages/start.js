@@ -12,6 +12,13 @@ export const startpage = (category, data) => {
   title_ele.id = "explain";
   page.appendChild(title_ele);
 
+  let div = document.createElement("div");
+  let category_pic = document.createElement("img");
+  category_pic.src = `${choicePicture(category)}`;
+  category_pic.width = 300;
+  div.appendChild(category_pic);
+  page.appendChild(div);
+
   let centence = document.createElement("h2");
   centence.textContent = category + "に関するクイズです";
   page.appendChild(centence);
@@ -20,7 +27,7 @@ export const startpage = (category, data) => {
   choices.id = "choices";
   page.appendChild(choices);
 
-  let div = document.createElement("div");
+  div = document.createElement("div");
   let start_btn_ele = document.createElement("button");
   start_btn_ele.textContent = "START";
   start_btn_ele.onclick = () => {
@@ -48,4 +55,13 @@ export const startpage = (category, data) => {
   };
   div.appendChild(back_btn_ele);
   choices.appendChild(div);
+};
+
+const choicePicture = (category) => {
+  switch (category) {
+    case "台風":
+      return "https://www.pakutaso.com/shared/img/thumb/150909085567_TP_V.jpg";
+    case "火災":
+      return "https://publicdomainq.net/images/201803/19s/publicdomainq-0020093aec.jpg";
+  }
 };

@@ -21,6 +21,7 @@ export const answerpage = (data, i, ans, score) => {
   text.appendChild(select_tab);
 
   let item_score = document.createElement("h1");
+  item_score.id = "prob_score";
   item_score.textContent = data[i].items[ans].score + "点";
   text.appendChild(item_score);
 
