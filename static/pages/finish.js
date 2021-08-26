@@ -22,13 +22,11 @@ export const finishpage = (data, i, score) => {
     while(f.lastChild){
       f.removeChild(f.lastChild);
     }
-    score = 0;
-    i = 0;
 
     const ctx = canvas.getContext("2d");
     DownDrawCircle(ctx);
     document.getElementById("canvas").style.display = "none";
-    firstpage(i, score);
+    firstpage();
   }
   _finishpage.appendChild(back_button_ele);
 }

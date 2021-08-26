@@ -3,7 +3,9 @@ import { questpage } from "./question.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 import { ButtonClick } from "../utils/canvas.js";
 
-export const firstpage = (i, score) => {
+export const firstpage = () => {
+  let i = 0;
+  let score = 0;
   let testpage = document.getElementById("HomePage");
   let element = document.createElement("h2");
   element.textContent = "台風";
