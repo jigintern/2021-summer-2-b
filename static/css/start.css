@@ -12,6 +12,7 @@
     border-radius: 20px;
     background-color: #FFFFFF;
     border: 1px solid #000000;
+    transition: all 0.05s ease-in-out;
 }
 
 #choices > div > button:hover{

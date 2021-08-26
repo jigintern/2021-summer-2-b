@@ -8,10 +8,11 @@
     height: 80px;
     text-align: center;
     font-size: 30px;
-    padding: 0px 60px;
+    padding: 0 60px;
     border-radius: 20px;
     background-color: #FFFFFF;
     border: 1px solid #000000;
+    transition: all 0.05s ease-in-out;
 }
 
 #modes > div > button:hover{
