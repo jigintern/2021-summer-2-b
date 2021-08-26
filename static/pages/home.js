@@ -3,7 +3,7 @@ import { questpage } from "./question.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 import { ButtonClick } from "../utils/canvas.js";
 
-export const firstpage = () => {
+export const homepage = () => {
   let i = 0;
   let score = 0;
   let testpage = document.getElementById("HomePage");
