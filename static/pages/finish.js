@@ -28,7 +28,7 @@ export const finishpage = (data, i, score) => {
     const ctx = canvas.getContext("2d");
     DownDrawCircle(ctx);
     document.getElementById("canvas").style.display = "none";
-    homepage();
+    firstpage();
   }
   _finishpage.appendChild(back_button_ele);
 }
