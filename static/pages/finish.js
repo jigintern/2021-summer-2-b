@@ -1,5 +1,5 @@
 import { DownDrawCircle } from "../utils/canvas.js";
-import {firstpage} from "./start.js";
+import {firstpage} from "./home.js";
 
 export const finishpage = (data, i, score) => {
   let _finishpage = document.getElementById("FinishPage");
