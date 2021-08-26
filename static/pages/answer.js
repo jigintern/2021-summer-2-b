@@ -30,8 +30,8 @@ export const answerpage = (data,i,ans, score) =>{
       }
       const ctx = canvas.getContext("2d");
       i++;
-      ButtonClick(ctx, i);
       if(i<3){
+        ButtonClick(ctx, i);
         questpage(data,i,score);
       }else{
         console.log(score);

@@ -76,6 +76,7 @@ export const ChangeCircleColor = (ctx, push_count) => {
 // ボタンを押した時の処理
 export const ButtonClick = (ctx, push_count) => {
   if (push_count <= Num_of_questions) {
-    ChangeCircleColor(ctx, push_count);
+    //1-indexed
+    ChangeCircleColor(ctx, push_count+1);
   }
 };
