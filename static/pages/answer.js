@@ -39,15 +39,13 @@ export const answerpage = (data, i, ans, score) => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
-    const ctx = canvas.getContext("2d");
     i++;
     buttonSound();
     if (i < 3) {
+      const ctx = canvas.getContext("2d");
       ButtonClick(ctx, i);
       questpage(data, i, score);
     } else {
-      console.log(score);
-      const ctx = canvas.getContext("2d");
       finishpage(data, i, score);
     }
   };
