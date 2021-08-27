@@ -1,3 +1,4 @@
+import { answerButtonSound } from "../utils/sound.js";
 import { answerpage } from "./answer.js";
 
 export const questpage = (data, i, score) => {
@@ -14,10 +15,11 @@ export const questpage = (data, i, score) => {
   question.appendChild(subject_ele);
 
   let j = 0;
-  while (j != data[i].length) {
+  while (j < data[i].length) {
     let answer = document.getElementById("QuestionPage");
     let ans_ele = document.createElement("button");
     ans_ele.id = j;
+    ans_ele.score = data[i].items[j].score;
     if (j == data[i].length - 1) ans_ele.id = "last";
     ans_ele.className = "answer";
     ans_ele.textContent = data[i].items[j].name;
@@ -26,6 +28,7 @@ export const questpage = (data, i, score) => {
       while (f.lastChild) {
         f.removeChild(f.lastChild);
       }
+      answerButtonSound(ans_ele.score);
       answerpage(data, i, this.id, score);
     };
     answer.appendChild(ans_ele);

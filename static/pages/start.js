@@ -1,6 +1,7 @@
 import { questpage } from "./question.js";
 import { ButtonClick } from "../utils/canvas.js";
 import { homepage } from "./home.js";
+import { buttonSound } from "../utils/sound.js";
 
 export const startpage = (category, data) => {
   let i = 0;
@@ -38,6 +39,7 @@ export const startpage = (category, data) => {
     const ctx = canvas.getContext("2d");
     ButtonClick(ctx, 0);
     document.getElementById("canvas").style.display = "block";
+    buttonSound();
     questpage(data, i, score);
   };
   div.appendChild(start_btn_ele);
@@ -51,6 +53,7 @@ export const startpage = (category, data) => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
+    buttonSound();
     homepage();
   };
   div.appendChild(back_btn_ele);
