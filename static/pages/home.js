@@ -7,15 +7,18 @@ export const homepage = () => {
   let score = 0;
   let page = document.getElementById("HomePage");
 
-  let title = document.createElement("h1");
-  title.textContent = "防災ドリル";
-  page.appendChild(title);
+  let div = document.createElement("div");
+  let logo_pic = document.createElement("img");
+  logo_pic.src = "../img/logo.png";
+  logo_pic.width = 200;
+  div.appendChild(logo_pic);
+  page.appendChild(div);
 
   let modes = document.createElement("div");
   modes.id = "modes";
   page.appendChild(modes);
 
-  let div = document.createElement("div");
+  div = document.createElement("div");
   let typhoon = document.createElement("button");
   typhoon.textContent = "台風";
   typhoon.onclick = async function () {
