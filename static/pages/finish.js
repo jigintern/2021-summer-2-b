@@ -1,4 +1,5 @@
 import { DownDrawCircle } from "../utils/canvas.js";
+import buttonSound from "../utils/sound.js";
 
 import { homepage } from "./home.js";
 
@@ -27,6 +28,7 @@ export const finishpage = (data, i, score) => {
     const ctx = canvas.getContext("2d");
     DownDrawCircle(ctx);
     document.getElementById("canvas").style.display = "none";
+    buttonSound();
     homepage();
   };
   _finishpage.appendChild(back_button_ele);

@@ -1,6 +1,7 @@
 import { shuffle } from "../utils/utils.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 import { startpage } from "./start.js";
+import buttonSound from "../utils/sound.js";
 
 export const homepage = () => {
   let i = 0;
@@ -28,6 +29,7 @@ export const homepage = () => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
+    buttonSound();
     startpage(this.textContent, data);
   };
   div.appendChild(typhoon);
@@ -42,6 +44,7 @@ export const homepage = () => {
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
+    buttonSound();
     startpage(this.textContent, data);
   };
   div.appendChild(fire);

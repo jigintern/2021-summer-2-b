@@ -1,3 +1,4 @@
+import buttonSound from "../utils/sound.js";
 import { answerpage } from "./answer.js";
 
 export const questpage = (data, i, score) => {
@@ -26,6 +27,7 @@ export const questpage = (data, i, score) => {
       while (f.lastChild) {
         f.removeChild(f.lastChild);
       }
+      buttonSound();
       answerpage(data, i, this.id, score);
     };
     answer.appendChild(ans_ele);
