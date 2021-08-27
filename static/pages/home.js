@@ -8,7 +8,7 @@ export const homepage = () => {
   let page = document.getElementById("HomePage");
 
   let title = document.createElement("h1");
-  title.textContent = "防災ドリル"
+  title.textContent = "防災ドリル";
   page.appendChild(title);
 
   let modes = document.createElement("div");
