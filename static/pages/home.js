@@ -14,7 +14,6 @@ export const homepage = () => {
   let div = document.createElement("div");
   let typhoon = document.createElement("button");
   typhoon.textContent = "台風";
-  typhoon.className = "mode";
   typhoon.onclick = async function () {
     const { data } = await fetchJSON("/api/events?subject=typhoon");
     shuffle(data);
@@ -29,7 +28,6 @@ export const homepage = () => {
   div = document.createElement("div");
   let fire = document.createElement("button");
   fire.textContent = "火災";
-  fire.className = "mode";
   fire.onclick = async function () {
     const { data } = await fetchJSON("/api/events?subject=fire");
     shuffle(data);

@@ -5,7 +5,7 @@
 #announce {
   font-size: 2rem;
 }
-#score {
+#all_score {
   font-size: 3rem;
 }
 
@@ -15,6 +15,7 @@
   color: black;
   background-color: white;
   border: 1px solid black;
+  transition: all 0.05s ease-in-out;
 }
 
 #back_home_button:hover{
@@ -22,5 +23,5 @@
   border-color: #3399CC;
   color: #f9f9f9;
   font-weight: bold;
-  outline: 0; 
+  outline: 0;
 }

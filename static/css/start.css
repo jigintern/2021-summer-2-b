@@ -1,10 +1,20 @@
-#modes{
+#StartPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#choices{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#modes > div > button{
+#StartPage > div > img{
+    border-radius: 20px;
+}
+
+#choices > div > button{
     height: 80px;
     text-align: center;
     font-size: 30px;
@@ -15,7 +25,7 @@
     transition: all 0.05s ease-in-out;
 }
 
-#modes > div > button:hover{
+#choices > div > button:hover{
     background-color: #3399CC;
     border-color: #3399CC;
     color: #f9f9f9;
