@@ -1,7 +1,7 @@
 import { shuffle } from "../utils/utils.js";
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 import { startpage } from "./start.js";
-import buttonSound from "../utils/sound.js";
+import { buttonSound } from "../utils/sound.js";
 
 export const homepage = () => {
   let i = 0;

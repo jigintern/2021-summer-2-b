@@ -1,7 +1,7 @@
 import { questpage } from "./question.js";
 import { ButtonClick } from "../utils/canvas.js";
 import { homepage } from "./home.js";
-import buttonSound from "../utils/sound.js";
+import { buttonSound } from "../utils/sound.js";
 
 export const startpage = (category, data) => {
   let i = 0;

@@ -1,5 +1,5 @@
 import { DownDrawCircle } from "../utils/canvas.js";
-import buttonSound from "../utils/sound.js";
+import { buttonSound } from "../utils/sound.js";
 
 import { homepage } from "./home.js";
 
