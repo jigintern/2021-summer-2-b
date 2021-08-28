@@ -4,8 +4,8 @@
 import { DownDrawCircle } from "./canvas.js";
 
 const main = () => {
-  let push_count = 0;
-  let items = [];
+  //let push_count = 0;
+  //let items = [];
 
   const canvas = document.getElementById("canvas");
 

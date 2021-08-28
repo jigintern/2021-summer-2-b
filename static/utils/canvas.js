@@ -27,7 +27,7 @@ export const White_canvas = (ctx, x, y) => {
 // 下の円を表示する関数
 export const DownDrawCircle = (ctx) => {
   for (let i = 1; i <= Num_of_questions; i++) {
-    let xpoint = i * document.body.clientWidth / (Num_of_questions + 1);
+    const xpoint = i * document.body.clientWidth / (Num_of_questions + 1);
     ctx.fillStyle = "#BBBBBB";
     ctx.arc(
       xpoint,
