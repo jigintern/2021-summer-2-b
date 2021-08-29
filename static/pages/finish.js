@@ -4,23 +4,23 @@ import { buttonSound } from "../utils/sound.js";
 import { homepage } from "./home.js";
 
 export const finishpage = (data, i, score) => {
-  let _finishpage = document.getElementById("FinishPage");
-  let _finish_ele = document.createElement("h4");
+  const _finishpage = document.getElementById("FinishPage");
+  const _finish_ele = document.createElement("h4");
 
   _finish_ele.id = "announce";
   _finish_ele.textContent = "あなたの点数は";
   _finishpage.appendChild(_finish_ele);
 
-  let score_ele = document.createElement("h2");
+  const score_ele = document.createElement("h2");
   score_ele.id = "all_score";
   score_ele.textContent = `${score}点`;
   _finishpage.appendChild(score_ele);
 
-  let back_button_ele = document.createElement("button");
+  const back_button_ele = document.createElement("button");
   back_button_ele.id = "back_home_button";
   back_button_ele.textContent = "もどる";
   back_button_ele.onclick = () => {
-    let f = document.getElementById("FinishPage");
+    const f = document.getElementById("FinishPage");
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }

@@ -4,35 +4,35 @@ import { homepage } from "./home.js";
 import { buttonSound } from "../utils/sound.js";
 
 export const startpage = (category, data) => {
-  let i = 0;
-  let score = 0;
-  let page = document.getElementById("StartPage");
+  const i = 0;
+  const score = 0;
+  const page = document.getElementById("StartPage");
 
-  let title_ele = document.createElement("h1");
+  const title_ele = document.createElement("h1");
   title_ele.textContent = category;
   title_ele.id = "explain";
   page.appendChild(title_ele);
 
-  let div = document.createElement("div");
-  let category_pic = document.createElement("img");
+  const div1 = document.createElement("div");
+  const category_pic = document.createElement("img");
   category_pic.src = `${choicePicture(category)}`;
   category_pic.width = 300;
-  div.appendChild(category_pic);
-  page.appendChild(div);
+  div1.appendChild(category_pic);
+  page.appendChild(div1);
 
-  let centence = document.createElement("h2");
+  const centence = document.createElement("h2");
   centence.textContent = category + "に関するクイズです";
   page.appendChild(centence);
 
-  let choices = document.createElement("div");
+  const choices = document.createElement("div");
   choices.id = "choices";
   page.appendChild(choices);
 
-  div = document.createElement("div");
-  let start_btn_ele = document.createElement("button");
+  const div2 = document.createElement("div");
+  const start_btn_ele = document.createElement("button");
   start_btn_ele.textContent = "START";
   start_btn_ele.onclick = () => {
-    let f = document.getElementById("StartPage");
+    const f = document.getElementById("StartPage");
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
@@ -42,22 +42,22 @@ export const startpage = (category, data) => {
     buttonSound();
     questpage(data, i, score);
   };
-  div.appendChild(start_btn_ele);
-  choices.appendChild(div);
+  div2.appendChild(start_btn_ele);
+  choices.appendChild(div2);
 
-  div = document.createElement("div");
-  let back_btn_ele = document.createElement("button");
+  const div3 = document.createElement("div");
+  const back_btn_ele = document.createElement("button");
   back_btn_ele.textContent = "もどる";
   back_btn_ele.onclick = () => {
-    let f = document.getElementById("StartPage");
+    const f = document.getElementById("StartPage");
     while (f.lastChild) {
       f.removeChild(f.lastChild);
     }
     buttonSound();
     homepage();
   };
-  div.appendChild(back_btn_ele);
-  choices.appendChild(div);
+  div3.appendChild(back_btn_ele);
+  choices.appendChild(div3);
 };
 
 const choicePicture = (category) => {
